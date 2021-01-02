@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.byung8.common.mapper.CommonCodeMapper">
+	<select id="findCodeListByCodeGroup" resultType="com.byung8.common.domain.CommonCode">
+		SELECT 
+		    a.CD_ID as codeId
+		  , a.CD_VAL as codeVal
+		  , a.CD_NM as codeName
+		  , a.CD_NM_ENG as codeNameEng
+		  , a.GRP_VAL as codeGroupName
+		  , b.GRP_NM as codeGroupVAl
+		  , a.CD_DTL as description
+		  , a.USE_YN as useYn
+		  , a.REG_DT as regDt
+		  , a.UDP_DT as udpDt
+		FROM TB_CMM_CD a, TB_CD_GRP b
+		WHERE a.GRP_VAL=b.GRP_VAL
+		AND a.GRP_VAL=#{codeGroupVAl}
+		AND a.USE_YN='Y'
+	</select>
+	
+	<select id="getCodeGroupList" resultType="com.byung8.common.domain.CodeGroup">
+		SELECT
+		   GRP_ID as codeGroupId
+		 , GRP_VAL as codeGroupVal
+		 , GRP_NM as codeGroupName
+		 , GRP_NM_ENG as codeGroupNameEng
+		 , GRP_DTL as description
+		 , USE_YN as useYn
+		 , REG_DT as regDt
+		 , UDP_DT as udpDt
+		FROM TB_CD_GRP
+		WHERE USE_YN='Y'
+	</select>
+
+</mapper>

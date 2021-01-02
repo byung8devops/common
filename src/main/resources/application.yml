@@ -1,0 +1,77 @@
+info:
+  app:
+    name: common
+    version: 1.0.0-SNAPSHOT
+    description:  common
+
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: metrics,health,prometheus
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.byung8.common.mapper
+  configuration:
+    lazyLoadingEnabled: true
+    aggressiveLazyLoading: false
+    mapUnderscoreToCamelCase: true
+spring:
+  profiles:
+    active: prod
+---
+spring:
+  profiles: prod
+  main:
+    allow-bean-definition-overriding: true
+  pid:
+    file: /common/run/common.pid
+  datasource:
+    url: jdbc:mysql://192.168.122.107:3306/fitness?useUnicode=yes&characterEncoding=UTF-8
+    username: byung8
+    password: 1q2w3e4r5t
+    driverClassName: com.mysql.jdbc.Driver
+logging:
+  config: classpath:logback-prod.xml
+log:
+  file:
+    path: "/common/logs"
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+---
+spring:
+  profiles: local
+  main:
+    allow-bean-definition-overriding: true
+  pid:
+    file: E://dev/work/common/run/foodcalorie.pid
+  datasource:
+    url: jdbc:mysql://byung8.iptime.org:32007/fitness?useUnicode=yes&characterEncoding=UTF-8
+    username: byung8
+    password: 1q2w3e4r5t
+    driverClassName: com.mysql.jdbc.Driver
+logging:
+  config: classpath:logback-local.xml
+log:
+  file:
+    path: "E://dev/work/common/logs"
+server:
+  port: 8081
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+ 
