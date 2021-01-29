@@ -35,4 +35,81 @@
 		WHERE USE_YN='Y'
 	</select>
 
+	<insert id="insertCodeGroup" parameterType="com.byung8.common.domain.CodeGroup">
+		INSERT INTO TB_CD_GRP (
+		GRP_VAL
+		, GRP_NM_ENG
+		, GRP_NM
+		, GRP_DTL
+		, UDP_DT
+		) VALUES (
+		GRP_VAL
+		#{codeGroupVal}
+		, #{codeGroupNameEng}
+		, #{codeGroupName}
+		, #{description}
+		, NULL
+		)
+	</insert>
+	
+	<update id="updateCodeGroup" parameterType="com.byung8.common.domain.CodeGroup">
+		UPDATE TB_CD_GRP
+		SET GRP_NM_ENG=${codeGroupNameEng}
+		, GRP_NM=${codeGroupName}
+		, GRP_DTL=${description}
+		WHERE
+		GRP_ID=${codeGroupId}
+	</update>
+
+	<update id="updateCodeGroupNotUsed" parameterType="com.byung8.common.domain.CodeGroup">
+		UPDATE TB_CD_GRP
+		SET USE_YN=${useYn}
+		WHERE
+		GRP_ID=${codeGroupId}
+	</update>
+	
+	<insert id="insertCommonCode" parameterType="com.byung8.common.domain.CommonCode">
+		INSERT INTO TB_CMM_CD (
+		CD_VAL
+		, CD_NM_ENG
+		, CD_NM
+		, GRP_VAL
+		, CD_DTL
+		, UDP_DT
+		) VALUES (
+		${codeVal}
+		, #{codeNameEng}
+		, #{codeName}
+		, #{codeGroupVAl}
+		, #{description}
+		, NULL
+		)
+	</insert>
+
+	<update id="updateCommonCode" parameterType="com.byung8.common.domain.CommonCode">
+		UPDATE TB_CMM_CD
+		SET CD_NM_ENG=#{codeNameEng}
+		, CD_NM=${codeName}
+		, GRP_VAL=${codeGroupVAl}
+		, CD_DTL=${description}
+		WHERE
+		CD_ID=${codeId}
+	</update>
+
+	<update id="updateCommonCodeNotUsed" parameterType="com.byung8.common.domain.CommonCode">
+		UPDATE TB_CMM_CD
+		SET USE_YN='N'
+		WHERE
+		CD_ID=${codeId}
+		AND USE_YN='Y'
+	</update>
+
+	<update id="updateAllCommonCodesNotUsedByGroup" parameterType="com.byung8.common.domain.CodeGroup">
+		UPDATE TB_CMM_CD
+		SET USE_YN='N'
+		WHERE
+		GRP_VAL=${codeGroupId}
+		AND USE_YN='Y'
+	</update>
+
 </mapper>
