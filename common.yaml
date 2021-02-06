@@ -30,6 +30,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: common
+    release: fitness
   name: common
   namespace: fitness
 spec:
