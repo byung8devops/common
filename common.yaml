@@ -21,6 +21,18 @@ spec:
       containers:
       - image: kube-01.bd.com:5000/fitness/common:0.1
         name: common
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 40
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 120
+          periodSeconds: 5
         resources: {}
 status: {}
 ---
@@ -41,7 +53,6 @@ spec:
     targetPort: 8080
   selector:
     app: common
-  type: ClusterIP
+  type: NodePort
 status:
   loadBalancer: {}
-
