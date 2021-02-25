@@ -1,4 +1,4 @@
-package com.byung8.common;
+package com.byung8.code;
 
 import org.springframework.boot.context.event.ApplicationFailedEvent;
 import org.springframework.context.ApplicationListener;

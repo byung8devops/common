@@ -1,4 +1,4 @@
-package com.byung8.common;
+package com.byung8.code;
 
 import java.nio.charset.Charset;
 
@@ -28,7 +28,7 @@ public class CommonApplication {
 		app.addListeners(new ApplicationPidFileWriter());
 		app.run(args);
 	}
-
+/*
 	@Bean
     public HttpMessageConverter<String> responseBodyConverter() {
         return new StringHttpMessageConverter(Charset.forName("UTF-8"));
@@ -41,4 +41,5 @@ public class CommonApplication {
         characterEncodingFilter.setForceEncoding(true);
         return characterEncodingFilter;
     }
+*/
 }

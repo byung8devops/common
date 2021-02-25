@@ -1,4 +1,4 @@
-package com.byung8.common.service;
+package com.byung8.code.service;
 
 import com.byung8.common.domain.CodeGroup;
 import com.byung8.common.domain.CommonCode;

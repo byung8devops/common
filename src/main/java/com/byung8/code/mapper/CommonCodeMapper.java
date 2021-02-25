@@ -1,4 +1,4 @@
-package com.byung8.common.mapper;
+package com.byung8.code.mapper;
 
 import java.sql.SQLException;
 import java.util.List;

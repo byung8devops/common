@@ -126,7 +126,7 @@
            <version>0.0.1-SNAPSHOT</version>
        </dependency>
        
-   </dependencies>
+    </dependencies>
 
     <build>
         <plugins>
@@ -141,7 +141,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.byung8.common.CommonApplication</mainClass>
+                            <mainClass>com.byung8.mydiet.CommonApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

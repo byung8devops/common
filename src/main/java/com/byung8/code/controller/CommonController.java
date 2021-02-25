@@ -1,4 +1,4 @@
-package com.byung8.common.controller;
+package com.byung8.code.controller;
 
 import java.util.UUID;
 
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.byung8.code.service.FsCommonServiceImpl;
 import com.byung8.common.domain.CodeGroup;
 import com.byung8.common.domain.CommonCode;
 import com.byung8.common.domain.IResult;
 import com.byung8.common.domain.Result;
 import com.byung8.common.exception.Byung8Exception;
-import com.byung8.common.service.FsCommonServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 

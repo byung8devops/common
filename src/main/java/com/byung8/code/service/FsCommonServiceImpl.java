@@ -1,4 +1,4 @@
-package com.byung8.common.service;
+package com.byung8.code.service;
 
 
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ import com.byung8.common.domain.CodeGroup;
 import com.byung8.common.domain.CommonCode;
 import com.byung8.common.domain.Result;
 import com.byung8.common.exception.Byung8Exception;
-import com.byung8.common.mapper.CommonCodeMapper;
+import com.byung8.code.mapper.CommonCodeMapper;
 
 import lombok.extern.slf4j.Slf4j;
 

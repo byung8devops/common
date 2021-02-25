@@ -18,7 +18,7 @@ management:
         include: metrics,health,prometheus
 mybatis:
   mapper-locations: classpath:mapper/**/*.xml
-  type-aliases-package: com.byung8.common.mapper
+  type-aliases-package: com.byung8.code.mapper
   configuration:
     lazyLoadingEnabled: true
     aggressiveLazyLoading: false
