@@ -141,7 +141,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.byung8.mydiet.CommonApplication</mainClass>
+                            <mainClass>com.byung8.code.CommonApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
